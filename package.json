@@ -1,0 +1,25 @@
+{
+  "name": "simple-popover",
+  "version": "0.0.1",
+  "description": "A simple popover ui widget",
+  "main": "src/popover.coffee",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mycolorway/simple-popover.git"
+  },
+  "author": "tinyfive",
+  "license": "GPL-v2",
+  "bugs": {
+    "url": "https://github.com/mycolorway/simple-popover/issues"
+  },
+  "homepage": "https://github.com/mycolorway/simple-popover",
+  "dependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-coffee": "~0.10.1",
+    "grunt-contrib-jasmine": "~0.6.1"
+  }
+}
