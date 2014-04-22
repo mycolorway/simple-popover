@@ -4,33 +4,40 @@ module.exports = (grunt) ->
 
     pkg: grunt.file.readJSON 'package.json'
 
-    connect:
-      uses_defaults: {}
+    sass:
+      styles:
+        options:
+          style: 'expanded'
+        files:
+          'lib/popover.css': 'src/popover.scss'
     coffee:
-      module:
+      spec:
+        files:
+          'spec/lib/popover-spec.js': 'spec/src/popover-spec.coffee'
+      popover:
         files:
           'lib/popover.js': 'src/popover.coffee'
-          'spec/popover-spec.js': 'spec/popover-spec.coffee'
     watch:
+      styles:
+        files: ['src/*.scss']
+        tasks: ['sass']
       scripts:
         files: ['src/**/*.coffee', 'spec/**/*.coffee']
         tasks: ['coffee']
-      jasmine : {
-        files: ['lib/**/*.js', 'specs/**/*.js'],
-        tasks: 'jasmine:pivotal:build'
-      }
     jasmine:
       pivotal:
         src: 'lib/**/*.js'
         options:
-          outfile: 'spec/index.html'
-          specs: 'spec/popover-spec.js'
+          specs: 'spec/lib/popover-spec.js'
           vendor: [
             'vendor/jquery-2.0.3.js',
+            'vendor/simple-module/lib/module.js'
           ]
 
+  grunt.loadNpmTasks 'grunt-contrib-sass'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-jasmine'
 
   grunt.registerTask 'default', ['watch']
+  grunt.registerTask 'test', ['sass', 'coffee', 'jasmine']

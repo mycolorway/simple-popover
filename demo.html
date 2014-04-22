@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>A simple popover widget</title>
+	<meta charset="utf-8" />
+
+	<link media="all" rel="stylesheet" type="text/css" href="vendor/font-awesome/css/font-awesome.css" />
+	<link media="all" rel="stylesheet" type="text/css" href="lib/popover.css" />
+	<style type="text/css" media="all">
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		.wrapper {
+			width: 850px;
+			margin: 100px auto 80px;
+		}
+
+		.target {
+			background: #ff99cc;
+			width: 50px;
+			height: 50px;
+			float: left;
+			margin: 40px;
+		}
+	</style>
+
+	<script type="text/javascript" src="vendor/jquery-2.0.3.js"></script>
+	<script type="text/javascript" src="vendor/simple-module/lib/module.js"></script>
+	<script type="text/javascript" src="lib/popover.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$(".target").on("click", function() {
+				var $this = $(this),
+					pos = $this.data("arg0") + "-" + $this.data("arg1");
+
+				simple.popover({
+					pointTo: $(this),
+					content: "hello",
+					position: pos
+				})
+			});
+		});
+	</script>
+
+</head>
+<body>
+	<div class="wrapper">
+		<div class="target" data-arg0="top" data-arg1="left">top-left</div>
+		<div class="target" data-arg0="top" data-arg1="right">top-right</div>
+		<div class="target" data-arg0="top" data-arg1="center">top-center</div>
+
+		<div class="target" data-arg0="bottom" data-arg1="left">bottom-left</div>
+		<div class="target" data-arg0="bottom" data-arg1="right">bottom-right</div>
+		<div class="target" data-arg0="bottom" data-arg1="center">bottom-center</div>
+
+		<div class="target" data-arg0="left" data-arg1="top">left-top</div>
+		<div class="target" data-arg0="left" data-arg1="bottom">left-bottom</div>
+		<div class="target" data-arg0="left" data-arg1="middle">left-middle</div>
+
+		<div class="target" data-arg0="right" data-arg1="top">right-top</div>
+		<div class="target" data-arg0="right" data-arg1="bottom">right-bottom</div>
+		<div class="target" data-arg0="right" data-arg1="middle">right-middle</div>
+	</div>
+</body>
+</html>
