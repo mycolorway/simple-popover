@@ -34,15 +34,15 @@
   left: 1px;
 }
 .simple-popover.direction-right-top .arrow-border, .simple-popover.direction-right-bottom .arrow-border, .simple-popover.direction-right-middle .arrow-border {
-  border-color: transparent #bbb transparent transparent;
+  border-color: transparent #c3c3c3 transparent transparent;
   left: 0px;
 }
 .simple-popover.direction-right-top .arrow-shadow-0, .simple-popover.direction-right-bottom .arrow-shadow-0, .simple-popover.direction-right-middle .arrow-shadow-0 {
-  border-color: transparent #eee transparent transparent;
+  border-color: transparent rgba(0, 0, 0, 0.1) transparent transparent;
   left: -1px;
 }
 .simple-popover.direction-right-top .arrow-shadow-1, .simple-popover.direction-right-bottom .arrow-shadow-1, .simple-popover.direction-right-middle .arrow-shadow-1 {
-  border-color: transparent #f6f6f6 transparent transparent;
+  border-color: transparent rgba(0, 0, 0, 0.05) transparent transparent;
   left: -2px;
 }
 .simple-popover.direction-left-top .simple-popover-arrow, .simple-popover.direction-left-bottom .simple-popover-arrow, .simple-popover.direction-left-middle .simple-popover-arrow {
@@ -53,15 +53,15 @@
   left: -1px;
 }
 .simple-popover.direction-left-top .arrow-border, .simple-popover.direction-left-bottom .arrow-border, .simple-popover.direction-left-middle .arrow-border {
-  border-color: transparent transparent transparent #bbb;
+  border-color: transparent transparent transparent #c3c3c3;
   left: 0px;
 }
 .simple-popover.direction-left-top .arrow-shadow-0, .simple-popover.direction-left-bottom .arrow-shadow-0, .simple-popover.direction-left-middle .arrow-shadow-0 {
-  border-color: transparent transparent transparent #eee;
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.1);
   left: 1px;
 }
 .simple-popover.direction-left-top .arrow-shadow-1, .simple-popover.direction-left-bottom .arrow-shadow-1, .simple-popover.direction-left-middle .arrow-shadow-1 {
-  border-color: transparent transparent transparent #f6f6f6;
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.05);
   left: 2px;
 }
 .simple-popover.direction-left-top .simple-popover-arrow, .simple-popover.direction-right-top .simple-popover-arrow {
@@ -82,15 +82,15 @@
   top: -1px;
 }
 .simple-popover.direction-top-left .arrow-border, .simple-popover.direction-top-right .arrow-border, .simple-popover.direction-top-center .arrow-border {
-  border-color: #bbb transparent transparent transparent;
+  border-color: #c3c3c3 transparent transparent transparent;
   top: 0px;
 }
 .simple-popover.direction-top-left .arrow-shadow-0, .simple-popover.direction-top-right .arrow-shadow-0, .simple-popover.direction-top-center .arrow-shadow-0 {
-  border-color: #eee transparent transparent transparent;
+  border-color: rgba(0, 0, 0, 0.1) transparent transparent transparent;
   top: 1px;
 }
 .simple-popover.direction-top-left .arrow-shadow-1, .simple-popover.direction-top-right .arrow-shadow-1, .simple-popover.direction-top-center .arrow-shadow-1 {
-  border-color: #f6f6f6 transparent transparent transparent;
+  border-color: rgba(0, 0, 0, 0.05) transparent transparent transparent;
   top: 2px;
 }
 .simple-popover.direction-bottom-left .simple-popover-arrow, .simple-popover.direction-bottom-right .simple-popover-arrow, .simple-popover.direction-bottom-center .simple-popover-arrow {
@@ -101,15 +101,15 @@
   top: 1px;
 }
 .simple-popover.direction-bottom-left .arrow-border, .simple-popover.direction-bottom-right .arrow-border, .simple-popover.direction-bottom-center .arrow-border {
-  border-color: transparent transparent #bbb transparent;
+  border-color: transparent transparent #c3c3c3 transparent;
   top: 0px;
 }
 .simple-popover.direction-bottom-left .arrow-shadow-0, .simple-popover.direction-bottom-right .arrow-shadow-0, .simple-popover.direction-bottom-center .arrow-shadow-0 {
-  border-color: transparent transparent #eee transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
   top: -1px;
 }
 .simple-popover.direction-bottom-left .arrow-shadow-1, .simple-popover.direction-bottom-right .arrow-shadow-1, .simple-popover.direction-bottom-center .arrow-shadow-1 {
-  border-color: transparent transparent #f6f6f6 transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.05) transparent;
   top: -2px;
 }
 .simple-popover.direction-top-left .simple-popover-arrow, .simple-popover.direction-bottom-left .simple-popover-arrow {
