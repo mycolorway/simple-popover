@@ -7,7 +7,7 @@
 	.simple-popover-content {
 		padding: 10px 15px;
 		background: #fff;
-		border: 1px solid #cccccc;
+		border: 1px solid #ccc;
 		border-radius: 6px;
 		box-shadow: 0 0 3px rgba(0,0,0,0.2);
 	}
@@ -24,6 +24,8 @@
 		  border-style: solid;
 		  border-width: 8px;
 		  position: absolute;
+		  left: 0;
+		  top: 0;
     }
 	}
 
@@ -34,20 +36,24 @@
       left: -16px;
     }
 
-	  .arrow {
+	  .arrow-basic {
       border-color: transparent #fff transparent transparent;
-      top: 0;
       left: 1px;
     }
 
     .arrow-border {
-      border-color: transparent #ccc transparent transparent;
+      border-color: transparent #bbb transparent transparent;
       left: 0px;
     }
 
-    .arrow-border-shadow {
-      border-color: transparent #ddd transparent transparent;
+    .arrow-shadow-0 {
+      border-color: transparent #eee transparent transparent;
       left: -1px;
+    }
+
+    .arrow-shadow-1 {
+      border-color: transparent #f6f6f6 transparent transparent;
+      left: -2px;
     }
 	}
 
@@ -58,34 +64,38 @@
 	    right: -16px;
     }
 
-    .arrow {
+    .arrow-basic {
       border-color: transparent transparent transparent #fff;
-      top: 0;
       left: -1px;
     }
 
     .arrow-border {
-      border-color: transparent transparent transparent #ccc;
+      border-color: transparent transparent transparent #bbb;
       left: 0px;
     }
 
-    .arrow-border-shadow {
-      border-color: transparent transparent transparent #ddd;
+    .arrow-shadow-0 {
+      border-color: transparent transparent transparent #eee;
       left: 1px;
+    }
+
+    .arrow-shadow-1 {
+      border-color: transparent transparent transparent #f6f6f6;
+      left: 2px;
     }
 	}
 
 	&.direction-left-top,
 	&.direction-right-top {
 	  .simple-popover-arrow {
-      bottom: 8px;
+      bottom: 16px;
     }
   }
 
   &.direction-left-bottom,
   &.direction-right-bottom {
     .simple-popover-arrow {
-      top: 8px;
+      top: 16px;
     }
   }
 
@@ -104,20 +114,24 @@
       bottom: -16px;
     }
 
-    .arrow {
+    .arrow-basic {
       border-color: #fff transparent transparent transparent;
-      left: 0;
-      bottom: 1px;
+      top: -1px;
     }
 
     .arrow-border {
-      border-color: #ccc transparent transparent transparent;
-      bottom: 0px;
+      border-color: #bbb transparent transparent transparent;
+      top: 0px;
     }
 
-    .arrow-border-shadow {
-      border-color: #ddd transparent transparent transparent;
-      bottom: -1px;
+    .arrow-shadow-0 {
+      border-color: #eee transparent transparent transparent;
+      top: 1px;
+    }
+
+    .arrow-shadow-1 {
+      border-color: #f6f6f6 transparent transparent transparent;
+      top: 2px;
     }
   }
 
@@ -128,34 +142,39 @@
 	    top: -16px;
     }
 
-    .arrow {
+    .arrow-basic {
       border-color: transparent transparent #fff transparent;
-      left: 0;
-      bottom: -1px;
+      top: 1px;
     }
 
     .arrow-border {
-      border-color: transparent transparent #ccc transparent;
-      bottom: 0px;
+      border-color: transparent transparent #bbb transparent;
+      top: 0px;
     }
 
-    .arrow-border-shadow {
-      border-color: transparent transparent #ddd transparent;
-      bottom: 1px;
+    .arrow-shadow-0 {
+      border-color: transparent transparent #eee transparent;
+      top: -1px;
+
+    }  
+
+    .arrow-shadow-1 {
+      border-color: transparent transparent #f6f6f6 transparent;
+      top: -2px;
     }  
   }
 
   &.direction-top-left,
   &.direction-bottom-left {
     .simple-popover-arrow {
-      right: 8px;
+      right: 16px;
     }
   }
 
   &.direction-top-right,
   &.direction-bottom-right {
     .simple-popover-arrow {
-      left: 8px;
+      left: 16px;
     }
   }
 

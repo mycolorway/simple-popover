@@ -7,7 +7,7 @@
 .simple-popover .simple-popover-content {
   padding: 10px 15px;
   background: #fff;
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   border-radius: 6px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
 }
@@ -23,44 +23,52 @@
   border-style: solid;
   border-width: 8px;
   position: absolute;
+  left: 0;
+  top: 0;
 }
 .simple-popover.direction-right-top .simple-popover-arrow, .simple-popover.direction-right-bottom .simple-popover-arrow, .simple-popover.direction-right-middle .simple-popover-arrow {
   left: -16px;
 }
-.simple-popover.direction-right-top .arrow, .simple-popover.direction-right-bottom .arrow, .simple-popover.direction-right-middle .arrow {
+.simple-popover.direction-right-top .arrow-basic, .simple-popover.direction-right-bottom .arrow-basic, .simple-popover.direction-right-middle .arrow-basic {
   border-color: transparent #fff transparent transparent;
-  top: 0;
   left: 1px;
 }
 .simple-popover.direction-right-top .arrow-border, .simple-popover.direction-right-bottom .arrow-border, .simple-popover.direction-right-middle .arrow-border {
-  border-color: transparent #ccc transparent transparent;
+  border-color: transparent #bbb transparent transparent;
   left: 0px;
 }
-.simple-popover.direction-right-top .arrow-border-shadow, .simple-popover.direction-right-bottom .arrow-border-shadow, .simple-popover.direction-right-middle .arrow-border-shadow {
-  border-color: transparent #ddd transparent transparent;
+.simple-popover.direction-right-top .arrow-shadow-0, .simple-popover.direction-right-bottom .arrow-shadow-0, .simple-popover.direction-right-middle .arrow-shadow-0 {
+  border-color: transparent #eee transparent transparent;
   left: -1px;
+}
+.simple-popover.direction-right-top .arrow-shadow-1, .simple-popover.direction-right-bottom .arrow-shadow-1, .simple-popover.direction-right-middle .arrow-shadow-1 {
+  border-color: transparent #f6f6f6 transparent transparent;
+  left: -2px;
 }
 .simple-popover.direction-left-top .simple-popover-arrow, .simple-popover.direction-left-bottom .simple-popover-arrow, .simple-popover.direction-left-middle .simple-popover-arrow {
   right: -16px;
 }
-.simple-popover.direction-left-top .arrow, .simple-popover.direction-left-bottom .arrow, .simple-popover.direction-left-middle .arrow {
+.simple-popover.direction-left-top .arrow-basic, .simple-popover.direction-left-bottom .arrow-basic, .simple-popover.direction-left-middle .arrow-basic {
   border-color: transparent transparent transparent #fff;
-  top: 0;
   left: -1px;
 }
 .simple-popover.direction-left-top .arrow-border, .simple-popover.direction-left-bottom .arrow-border, .simple-popover.direction-left-middle .arrow-border {
-  border-color: transparent transparent transparent #ccc;
+  border-color: transparent transparent transparent #bbb;
   left: 0px;
 }
-.simple-popover.direction-left-top .arrow-border-shadow, .simple-popover.direction-left-bottom .arrow-border-shadow, .simple-popover.direction-left-middle .arrow-border-shadow {
-  border-color: transparent transparent transparent #ddd;
+.simple-popover.direction-left-top .arrow-shadow-0, .simple-popover.direction-left-bottom .arrow-shadow-0, .simple-popover.direction-left-middle .arrow-shadow-0 {
+  border-color: transparent transparent transparent #eee;
   left: 1px;
 }
+.simple-popover.direction-left-top .arrow-shadow-1, .simple-popover.direction-left-bottom .arrow-shadow-1, .simple-popover.direction-left-middle .arrow-shadow-1 {
+  border-color: transparent transparent transparent #f6f6f6;
+  left: 2px;
+}
 .simple-popover.direction-left-top .simple-popover-arrow, .simple-popover.direction-right-top .simple-popover-arrow {
-  bottom: 8px;
+  bottom: 16px;
 }
 .simple-popover.direction-left-bottom .simple-popover-arrow, .simple-popover.direction-right-bottom .simple-popover-arrow {
-  top: 8px;
+  top: 16px;
 }
 .simple-popover.direction-left-middle .simple-popover-arrow, .simple-popover.direction-right-middle .simple-popover-arrow {
   top: 50%;
@@ -69,40 +77,46 @@
 .simple-popover.direction-top-left .simple-popover-arrow, .simple-popover.direction-top-right .simple-popover-arrow, .simple-popover.direction-top-center .simple-popover-arrow {
   bottom: -16px;
 }
-.simple-popover.direction-top-left .arrow, .simple-popover.direction-top-right .arrow, .simple-popover.direction-top-center .arrow {
+.simple-popover.direction-top-left .arrow-basic, .simple-popover.direction-top-right .arrow-basic, .simple-popover.direction-top-center .arrow-basic {
   border-color: #fff transparent transparent transparent;
-  left: 0;
-  bottom: 1px;
+  top: -1px;
 }
 .simple-popover.direction-top-left .arrow-border, .simple-popover.direction-top-right .arrow-border, .simple-popover.direction-top-center .arrow-border {
-  border-color: #ccc transparent transparent transparent;
-  bottom: 0px;
+  border-color: #bbb transparent transparent transparent;
+  top: 0px;
 }
-.simple-popover.direction-top-left .arrow-border-shadow, .simple-popover.direction-top-right .arrow-border-shadow, .simple-popover.direction-top-center .arrow-border-shadow {
-  border-color: #ddd transparent transparent transparent;
-  bottom: -1px;
+.simple-popover.direction-top-left .arrow-shadow-0, .simple-popover.direction-top-right .arrow-shadow-0, .simple-popover.direction-top-center .arrow-shadow-0 {
+  border-color: #eee transparent transparent transparent;
+  top: 1px;
+}
+.simple-popover.direction-top-left .arrow-shadow-1, .simple-popover.direction-top-right .arrow-shadow-1, .simple-popover.direction-top-center .arrow-shadow-1 {
+  border-color: #f6f6f6 transparent transparent transparent;
+  top: 2px;
 }
 .simple-popover.direction-bottom-left .simple-popover-arrow, .simple-popover.direction-bottom-right .simple-popover-arrow, .simple-popover.direction-bottom-center .simple-popover-arrow {
   top: -16px;
 }
-.simple-popover.direction-bottom-left .arrow, .simple-popover.direction-bottom-right .arrow, .simple-popover.direction-bottom-center .arrow {
+.simple-popover.direction-bottom-left .arrow-basic, .simple-popover.direction-bottom-right .arrow-basic, .simple-popover.direction-bottom-center .arrow-basic {
   border-color: transparent transparent #fff transparent;
-  left: 0;
-  bottom: -1px;
+  top: 1px;
 }
 .simple-popover.direction-bottom-left .arrow-border, .simple-popover.direction-bottom-right .arrow-border, .simple-popover.direction-bottom-center .arrow-border {
-  border-color: transparent transparent #ccc transparent;
-  bottom: 0px;
+  border-color: transparent transparent #bbb transparent;
+  top: 0px;
 }
-.simple-popover.direction-bottom-left .arrow-border-shadow, .simple-popover.direction-bottom-right .arrow-border-shadow, .simple-popover.direction-bottom-center .arrow-border-shadow {
-  border-color: transparent transparent #ddd transparent;
-  bottom: 1px;
+.simple-popover.direction-bottom-left .arrow-shadow-0, .simple-popover.direction-bottom-right .arrow-shadow-0, .simple-popover.direction-bottom-center .arrow-shadow-0 {
+  border-color: transparent transparent #eee transparent;
+  top: -1px;
+}
+.simple-popover.direction-bottom-left .arrow-shadow-1, .simple-popover.direction-bottom-right .arrow-shadow-1, .simple-popover.direction-bottom-center .arrow-shadow-1 {
+  border-color: transparent transparent #f6f6f6 transparent;
+  top: -2px;
 }
 .simple-popover.direction-top-left .simple-popover-arrow, .simple-popover.direction-bottom-left .simple-popover-arrow {
-  right: 8px;
+  right: 16px;
 }
 .simple-popover.direction-top-right .simple-popover-arrow, .simple-popover.direction-bottom-right .simple-popover-arrow {
-  left: 8px;
+  left: 16px;
 }
 .simple-popover.direction-top-center .simple-popover-arrow, .simple-popover.direction-bottom-center .simple-popover-arrow {
   left: 50%;

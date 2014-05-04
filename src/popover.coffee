@@ -19,9 +19,10 @@ class Popover extends Widget
       <div class="simple-popover">
         <div class="simple-popover-content"></div>
         <div class="simple-popover-arrow">
-          <i class="arrow arrow-border-shadow"></i>
+          <i class="arrow arrow-shadow-1"></i>
+          <i class="arrow arrow-shadow-0"></i>
           <i class="arrow arrow-border"></i>
-          <i class="arrow"></i>
+          <i class="arrow arrow-basic"></i>
         </div>
       </div> 
     """
@@ -75,8 +76,8 @@ class Popover extends Widget
     $(document).off(".simple-popover")
 
 
-  destroy: =>
-    if @pointTo.triggerHandler("popover:beforeDestroy", [@]) is false
+  destroy: ->
+    if @.triggerHandler("popover:beforeDestroy") is false
       return
 
     @_unbind()
@@ -104,7 +105,7 @@ class Popover extends Widget
 
     arrowWidth  = Popover.arrowWidth
     arrowHeight = Popover.arrowHeight
-    arrowOffset = 8
+    arrowOffset = 16
 
     top = 0
     left = 0
