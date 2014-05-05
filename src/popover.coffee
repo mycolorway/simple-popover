@@ -1,17 +1,29 @@
 class Popover extends Widget
   opts:
-    pointTo: null
-    content: null
-    position: null
-    offset: null
-    autohide: true
-    cls: null
-    align: "center"
-    verticalAlign: "middle"
+    pointTo:             null
+    content:             null
+    position:            null
+    offset:              null
+    autohide:            true
+    cls:                 null
+    align:               "center"
+    verticalAlign:       "middle"
+    autoAdjustPosition:  true
 
-
-  @arrowWidth: 16
-  @arrowHeight: 16
+  @_directions: [
+    "direction-left-top"
+    "direction-left-middle"
+    "direction-left-bottom"
+    "direction-right-top"
+    "direction-right-bottom"
+    "direction-right-middle"
+    "direction-top-left"
+    "direction-top-right"
+    "direction-top-center"
+    "direction-bottom-left"
+    "direction-bottom-right"
+    "direction-bottom-center"
+  ]
 
 
   @_tpl:
@@ -24,7 +36,7 @@ class Popover extends Widget
           <i class="arrow arrow-border"></i>
           <i class="arrow arrow-basic"></i>
         </div>
-      </div> 
+      </div>
     """
 
 
@@ -45,6 +57,7 @@ class Popover extends Widget
   _render: ->
     @el = $(Popover._tpl.popover).addClass @opts.cls
     @pointTo = @opts.pointTo
+    @arrow = @el.find(".simple-popover-arrow")
 
     @el.find(".simple-popover-content").append(@opts.content)
     @el.appendTo("body")
@@ -52,8 +65,8 @@ class Popover extends Widget
     @pointTo.addClass("popover-pointTo")
       .data("popover", @)
 
-			
-  
+
+
   _bind: ->
     @el.on "click.simple-popover", ".simple-popover-destroy", (e) =>
       e.preventDefault()
@@ -69,11 +82,16 @@ class Popover extends Widget
 
         @destroy()
 
+    $(window).on "resize.simple-popover", =>
+      @refresh()
+
 
 
   _unbind: ->
     @el.off(".simple-popover")
     $(document).off(".simple-popover")
+    $(window).off(".simple-popover")
+
 
 
   destroy: ->
@@ -103,34 +121,34 @@ class Popover extends Widget
     scrollTop  = $(document).scrollTop()
     scrollLeft = $(document).scrollLeft()
 
-    arrowWidth  = Popover.arrowWidth
-    arrowHeight = Popover.arrowHeight
+    arrowWidth  = @arrow.width()
+    arrowHeight = @arrow.height()
     arrowOffset = 16
 
     top = 0
     left = 0
 
-    directions = [
-      "direction-left-top"
-      "direction-left-middle"
-      "direction-left-bottom"
-      "direction-right-top"
-      "direction-right-bottom"
-      "direction-right-middle"
-      "direction-top-left"
-      "direction-top-right"
-      "direction-top-center"
-      "direction-bottom-left"
-      "direction-bottom-right"
-      "direction-bottom-center"
-    ]
+    directions = Popover._directions
 
     @el.removeClass(directions.join(" "))
 
     if @opts.position
-      @el.addClass("direction-#{ @opts.position }")
+      direction = "direction-#{ @opts.position }"
+
+      if directions.indexOf(direction) is -1
+        throw "[Popver] - position 参数不合法，无法正确显示 popover 位置"
+
+      @el.addClass(direction)
     else
-      bottomNotEnough = winHeight + scrollTop - pointToOffset.top - pointToHeight \
+      pointToHeightOffset = switch @opts.verticalAlign
+                              when "top"
+                                0
+                              when "bottom"
+                                pointToHeight
+                              else
+                                pointToHeight / 2
+
+      bottomNotEnough = winHeight + scrollTop - pointToOffset.top - pointToHeightOffset \
                           < popoverHeight + 10
 
       rightNotEnough = winWidth + scrollLeft - pointToOffset.left - pointToWidth \
@@ -141,6 +159,7 @@ class Popover extends Widget
       direction[1] = "top" if bottomNotEnough
       @el.addClass("direction-#{ direction.join("-") }")
 
+    # calculate popover position
     direction = @el.attr("class").match(/direction-([a-z]+)-([a-z]+)/).slice(1)
 
     switch direction[0]
@@ -171,7 +190,8 @@ class Popover extends Widget
       else
         break
 
-    if /direction-[top|bottom]/.test @el.attr("class")
+    # set align
+    if /top|bottom/.test direction[0]
       switch @opts.align
         when "left"
           left -= pointToWidth / 2
@@ -180,15 +200,48 @@ class Popover extends Widget
         else
           break
 
-    if /direction-[left|right]/.test @el.attr("class")
+    # set vertical align
+    if /left|right/.test direction[0]
       switch @opts.verticalAlign
         when "top"
-          left -= pointToHeight / 2
+          top -= pointToHeight / 2
         when "bottom"
-          left += pointToHeight / 2
+          top += pointToHeight / 2
         else
           break
 
+    # auto adjust position if popover beyond browser view edge
+    if @opts.autoAdjustPosition
+      if /top|bottom/.test(direction[0]) and left < scrollLeft
+        delta = scrollLeft - left
+        left += delta
+
+        switch direction[1]
+          when "left"
+            @arrow.css("right", parseInt(@arrow.css("right")) + delta)
+          when "right"
+            @arrow.css("left", parseInt(@arrow.css("left")) + delta)
+          else
+            @arrow.css("marginLeft", parseInt(@arrow.css("marginLeft")) - delta)
+
+
+
+      if /left|right/.test(direction[0]) and top < scrollTop
+        delta = scrollTop - top
+        top += delta
+
+        switch direction[1]
+          when "top"
+            @arrow.css("bottom", parseInt(@arrow.css("bottom")) + delta)
+          when "bottom"
+            @arrow.css("top", parseInt(@arrow.css("top")) + delta)
+          else
+            @arrow.css("marginTop", parseInt(@arrow.css("marginTop")) - delta)
+
+
+
+
+    # set offset
     if @opts.offset
       top  += @opts.offset.top
       left += @opts.offset.left
@@ -196,7 +249,7 @@ class Popover extends Widget
     @el.css
       top: top
       left: left
-    
+
 
 
   @destroyAll: ->

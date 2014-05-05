@@ -1,6 +1,0 @@
-[submodule "vendor/simple-module"]
-	path = vendor/simple-module
-	url = git@github.com:mycolorway/simple-module.git
-[submodule "vendor/font-awesome"]
-	path = vendor/font-awesome
-	url = git@github.com:FortAwesome/Font-Awesome.git

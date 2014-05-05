@@ -10,6 +10,7 @@
 		border: 1px solid #ccc;
 		border-radius: 6px;
 		box-shadow: 0 0 3px rgba(0,0,0,0.2);
+		white-space: nowrap;
 	}
 
 	.simple-popover-arrow {
@@ -156,12 +157,12 @@
       border-color: transparent transparent rgba(0,0,0,0.1) transparent;
       top: -1px;
 
-    }  
+    }
 
     .arrow-shadow-1 {
       border-color: transparent transparent rgba(0,0,0,0.05) transparent;
       top: -2px;
-    }  
+    }
   }
 
   &.direction-top-left,

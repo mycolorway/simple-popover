@@ -1,0 +1,28 @@
+{
+  "name": "simple popover",
+  "version": "0.0.9",
+  "homepage": "https://github.com/mycolorway/simple-popover",
+  "authors": [
+    "tinyfive <tinyfive@mycolorway.com>"
+  ],
+  "description": "a simple popover widget",
+  "main": "lib/popover.js",
+  "keywords": [
+    "popover"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "vendor",
+		"Gruntfile.coffee",
+		"package.json",
+		"demo.html",
+		"spec"
+  ],
+	"dependencies": {
+		"jquery": "~2.1.0",
+		"fontawesome": "~4.0.3",
+		"simple-module": "~1.0.0"
+	}
+}
