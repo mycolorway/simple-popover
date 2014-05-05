@@ -140,25 +140,21 @@ class Popover extends Widget
 
       @el.addClass(direction)
     else
-      pointToHeightOffset = switch @opts.verticalAlign
-                              when "top"
-                                0
-                              when "bottom"
-                                pointToHeight
-                              else
-                                pointToHeight / 2
-
-      bottomNotEnough = winHeight + scrollTop - pointToOffset.top - pointToHeightOffset \
-                          < popoverHeight + arrowOffset
-      rightNotEnough = winWidth + scrollLeft - pointToOffset.left - pointToWidth \
-                          < popoverWidth + arrowOffset
-      topEnough = pointToOffset.top - scrollTop > popoverHeight - pointToHeightOffset + arrowOffset
-      leftEnough = pointToOffset.left - scrollLeft > popoverWidth + arrowOffset
-
+      leftSpace = pointToOffset.left - scrollLeft
+      rightSpace = scrollLeft + winWidth - pointToOffset.left - pointToWidth
+      topSpace = pointToOffset.top - scrollTop
+      bottomSpace = scrollTop + winHeight - pointToOffset.top - pointToHeight
 
       direction = ["right", "bottom"]
-      direction[0] = "left" if rightNotEnough and leftEnough
-      direction[1] = "top" if bottomNotEnough and topEnough
+      verticalAlign = "top"
+
+      if rightSpace < popoverWidth + arrowOffset and leftSpace > rightSpace and leftSpace > popoverWidth + arrowOffset
+        direction[0] = "left"
+
+      if topSpace > bottomSpace
+        direction[1] = "top"
+        verticalAlign = "bottom"
+
       @el.addClass("direction-#{ direction.join("-") }")
 
     # calculate popover position
