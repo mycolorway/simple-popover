@@ -149,14 +149,16 @@ class Popover extends Widget
                                 pointToHeight / 2
 
       bottomNotEnough = winHeight + scrollTop - pointToOffset.top - pointToHeightOffset \
-                          < popoverHeight + 10
-
+                          < popoverHeight + arrowOffset
       rightNotEnough = winWidth + scrollLeft - pointToOffset.left - pointToWidth \
-                          < popoverWidth + 20
+                          < popoverWidth + arrowOffset
+      topEnough = pointToOffset.top - scrollTop > popoverHeight - pointToHeightOffset + arrowOffset
+      leftEnough = pointToOffset.left - scrollLeft > popoverWidth + arrowOffset
+
 
       direction = ["right", "bottom"]
-      direction[0] = "left" if rightNotEnough
-      direction[1] = "top" if bottomNotEnough
+      direction[0] = "left" if rightNotEnough and leftEnough
+      direction[1] = "top" if bottomNotEnough and topEnough
       @el.addClass("direction-#{ direction.join("-") }")
 
     # calculate popover position
@@ -218,13 +220,11 @@ class Popover extends Widget
 
         switch direction[1]
           when "left"
-            @arrow.css("right", parseInt(@arrow.css("right")) + delta)
+            @arrow.css("right", arrowOffset + delta)
           when "right"
-            @arrow.css("left", parseInt(@arrow.css("left")) + delta)
+            @arrow.css("left", Math.max(arrowOffset - delta, arrowOffset))
           else
-            @arrow.css("marginLeft", parseInt(@arrow.css("marginLeft")) - delta)
-
-
+            @arrow.css("marginLeft", -arrowOffset / 2 - delta)
 
       if /left|right/.test(direction[0]) and top < scrollTop
         delta = scrollTop - top
@@ -232,14 +232,11 @@ class Popover extends Widget
 
         switch direction[1]
           when "top"
-            @arrow.css("bottom", parseInt(@arrow.css("bottom")) + delta)
+            @arrow.css("bottom", arrowOffset + delta)
           when "bottom"
-            @arrow.css("top", parseInt(@arrow.css("top")) + delta)
+            @arrow.css("top", Math.max(arrowOffset - delta, arrowOffset))
           else
-            @arrow.css("marginTop", parseInt(@arrow.css("marginTop")) - delta)
-
-
-
+            @arrow.css("marginTop", -arrowOffset / 2 - delta)
 
     # set offset
     if @opts.offset
