@@ -8,6 +8,7 @@ module.exports = (grunt) ->
       styles:
         options:
           style: 'expanded'
+          bundleExec: true
         files:
           'lib/popover.css': 'src/popover.scss'
     coffee:
@@ -24,14 +25,17 @@ module.exports = (grunt) ->
       scripts:
         files: ['src/**/*.coffee', 'spec/**/*.coffee']
         tasks: ['coffee']
+      jasmine:
+        files: ['spec/lib/*.js']
+        tasks: ['jasmine']
     jasmine:
       pivotal:
         src: 'lib/**/*.js'
         options:
           specs: 'spec/lib/popover-spec.js'
           vendor: [
-            'vendor/jquery-2.0.3.js',
-            'vendor/simple-module/lib/module.js'
+            'vendor/bower/jquery/dist/jquery.min.js',
+            'vendor/bower/simple-module/lib/module.js'
           ]
 
   grunt.loadNpmTasks 'grunt-contrib-sass'
@@ -39,5 +43,5 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-jasmine'
 
-  grunt.registerTask 'default', ['watch']
+  grunt.registerTask 'default', ['test', 'watch']
   grunt.registerTask 'test', ['sass', 'coffee', 'jasmine']

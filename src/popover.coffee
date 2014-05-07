@@ -74,10 +74,11 @@ class Popover extends Widget
 
     if @opts.autohide
       $(document).on "mousedown.simple-popover", (e) =>
-        if $(document).triggerHandler("popover:beforeAutohide", [@]) is false
+        target = $(e.target)
+
+        if @triggerHandler("popover:beforeAutohide", [@, target]) is false
           return
 
-        target = $(e.target)
         return if target.is(@pointTo) or @el.has(target).length or target.is(@el)
 
         @destroy()
@@ -95,7 +96,7 @@ class Popover extends Widget
 
 
   destroy: ->
-    if @.triggerHandler("popover:beforeDestroy") is false
+    if @triggerHandler("popover:beforeDestroy", [@]) is false
       return
 
     @_unbind()
@@ -103,7 +104,7 @@ class Popover extends Widget
     @pointTo.removeClass("popover-pointTo")
       .removeData("popover")
 
-    $(document).trigger( "popover:destroy", [@pointTo, @el] )
+    @trigger("popover:destroy", [@])
 
 
 
