@@ -132,6 +132,11 @@ class Popover extends Widget
     directions = Popover._directions
 
     @el.removeClass(directions.join(" "))
+    @arrow.css
+      top: ''
+      bottom: ''
+      left: ''
+      right: ''
 
     if @opts.position
       direction = "direction-#{ @opts.position }"
