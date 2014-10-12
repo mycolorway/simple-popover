@@ -1,4 +1,5 @@
-class Popover extends Widget
+class Popover extends SimpleModule
+
   opts:
     pointTo:             null
     content:             null
@@ -42,10 +43,10 @@ class Popover extends Widget
 
   _init: ->
     if @opts.pointTo is null
-      throw "[Popver] - pointTo 位置不明"
+      throw "[Popover] - pointTo 位置不明"
 
     if @opts.content is null
-      throw "[Popver] - 内容不能为空"
+      throw "[Popover] - 内容不能为空"
 
     Popover.destroyAll()
     @_render()
@@ -142,7 +143,7 @@ class Popover extends Widget
       direction = "direction-#{ @opts.position }"
 
       if directions.indexOf(direction) is -1
-        throw "[Popver] - position 参数不合法，无法正确显示 popover 位置"
+        throw "[Popover] - position 参数不合法，无法正确显示 popover 位置"
 
       @el.addClass(direction)
     else
@@ -261,11 +262,7 @@ class Popover extends Widget
       else
         popover.destroy()
 
+popover = (opts) ->
+  new Popover(opts)
 
-
-@simple ||= {}
-
-@simple.popover = (opts) ->
-  return new Popover opts
-
-@simple.popover.destroyAll = Popover.destroyAll
+popover.destroyAll = Popover.destroyAll

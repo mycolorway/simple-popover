@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>A simple popover widget</title>
+	<title>Simple Popover Sample</title>
 	<meta charset="utf-8" />
 
 	<link media="all" rel="stylesheet" type="text/css" href="vendor/bower/fontawesome/css/font-awesome.css" />
-	<link media="all" rel="stylesheet" type="text/css" href="lib/popover.css" />
+	<link media="all" rel="stylesheet" type="text/css" href="styles/popover.css" />
 	<style type="text/css" media="all">
 		body {
 			margin: 0;
@@ -43,6 +43,7 @@
 				var opts = {
 					pointTo: $this,
 					content: content,
+          autohide: true,
 					align: $("#condition-align").val(),
 					verticalAlign: $("#condition-vertical-align").val()
 				};
