@@ -23,7 +23,7 @@
 ```js
 simple.popover({
   pointTo: $('#pointTo'),
-  cont  ent: 'This is content'
+  content: 'This is content'
 });
 
 ```
@@ -46,7 +46,7 @@ popover的位置，支持以下选项：
 
 ```
 [
-  'left-top'，
+  'left-top',
   'left-middle',
   'left-bottom',
   'right-top',
