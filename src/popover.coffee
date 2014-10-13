@@ -43,10 +43,10 @@ class Popover extends SimpleModule
 
   _init: ->
     if @opts.pointTo is null
-      throw "[Popover] - pointTo 位置不明"
+      throw "[Popover] - pointTo is not given"
 
     if @opts.content is null
-      throw "[Popover] - 内容不能为空"
+      throw "[Popover] - content shouldn't be empty"
 
     Popover.destroyAll()
     @_render()
@@ -143,7 +143,7 @@ class Popover extends SimpleModule
       direction = "direction-#{ @opts.position }"
 
       if directions.indexOf(direction) is -1
-        throw "[Popover] - position 参数不合法，无法正确显示 popover 位置"
+        throw "[Popover] - position is not valid"
 
       @el.addClass(direction)
     else
@@ -249,8 +249,6 @@ class Popover extends SimpleModule
     @el.css
       top: top
       left: left
-
-
 
   @destroyAll: ->
     $(".simple-popover").each ->
