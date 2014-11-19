@@ -243,8 +243,17 @@ class Popover extends SimpleModule
 
     # set offset
     if @opts.offset
-      top  += @opts.offset.top
-      left += @opts.offset.left
+      if @opts.offset.vertical
+        if /top/.test(direction[0])
+          top  -= @opts.offset.vertical
+        else
+          top  += @opts.offset.vertical
+
+      if @opts.offset.horizental
+        if /left/.test(direction[0])
+          left -= @opts.offset.horizental
+        else
+          left += @opts.offset.horizental
 
     @el.css
       top: top
