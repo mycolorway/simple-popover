@@ -35,7 +35,7 @@ simple.popover({
 __pointTo__
 
 popover控件指向元素的JQuery选择器，必选
-  
+
 __content__
 
 String, popover显示的内容，必选
@@ -63,7 +63,17 @@ popover的位置，支持以下选项：
 
 __offset__
 
-popover相对于指向元素的偏移量
+Object, popover相对于指向元素的偏移量
+
+默认值: null, 允许为 Object，比如：
+
+```
+{
+  x: 10,
+  y: 10
+}
+
+```
 
 __align__
 
